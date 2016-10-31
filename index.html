@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="Crud">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="crud basico, very simple, angular e mysql"> 
+    <meta name="author" content="Crisciano S. Botelho"> 
+	<title>Angular 1</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="app/crud.module.js"></script>
+	<script src="app/crud.controller.js"></script>
+	<style>
+		section{
+			padding: 80px 0;
+		}
+	</style>
+</head>
+<body>
+
+	<section>
+		<div class="container" ng-controller="TesteController">
+			<div class="row">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th class="text-uppercase"><b>id</b></th>
+							<th class="text-uppercase"><b>Nome</b></th>
+							<th class="text-uppercase"><b>valor</b></th>
+							<th class="text-uppercase"><b>ação</b></th>
+							<!--<th class="text-uppercase"><b>comprado</b> </th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="content in contents">
+							<th>{{content.id_pet_config}}</th>
+							<th>{{content.nome}}</th>
+							<th>{{content.valor}}</th>
+							<th><button ng-click="deletar(content.id_pet_config)">Deletar</button></th>
+							<!--<th>{{item.comprado}}</th> -->
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<form action="">
+						<div class="form-group">
+							<label for="nome">nome</label>
+							<input class="form-control" type="text" ng-model="nome">
+						</div>
+						<div class="form-group">
+							<label for="valor">valor</label>
+							<input class="form-control" type="text" ng-model="valor">
+						</div>
+						<div>{{msg}}</div>
+						<button type="button" class="btn btn-primary" ng-click="inserirDados()">cadastrar </button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>-->
+</body>
+</html>
